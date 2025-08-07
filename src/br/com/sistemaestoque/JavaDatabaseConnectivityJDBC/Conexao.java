@@ -15,7 +15,6 @@ public class Conexao {
            return DriverManager.getConnection(conexao, user, password);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Seu erro de conexão ocorreu pois" + e);
-
         }
         return null;
     }

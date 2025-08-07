@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FuncDB {
-    private final Connection conn;
+    private Connection conn;
 
     public FuncDB() throws SQLException {
         this.conn = new Conexao().conectar();
@@ -77,6 +77,9 @@ public class FuncDB {
                                 "DATA DA ALTERAÇÃO     | "+rs.getString("data_alt"));
                 System.out.println("---------------------------------");
             }
+            rs.close();
+            stmt.close();
+            conn.close();
         } catch (
                 SQLException e) {
             throw new RuntimeException(e);
