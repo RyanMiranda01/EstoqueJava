@@ -1,20 +1,14 @@
 package br.com.sistemaestoque.Principal;
 
-import br.com.sistemaestoque.FuncionalidadesBD.FuncDB;
-import br.com.sistemaestoque.JavaDatabaseConnectivityJDBC.Conexao;
 
+import br.com.sistemaestoque.Menu.Menus;
 
-
-import java.sql.SQLException;
 
 
 public class Principal {
-    public static void main(String[] args) throws SQLException {
-
-        FuncDB fc = new FuncDB();
-        fc.ListarTabelaEstoque();
-        fc.ListarTabelaFuncionarios();
-        fc.ListarTabelaHistorico();
+    public static void main(String[] args){
+    Menus menu = new Menus();
+    menu.menuPrincipal();
     }
 
 }

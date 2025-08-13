@@ -1,0 +1,59 @@
+--COPIE E COLE ESSE CODIGO SQL NO SEU BANCO DE DADOS E CONFIGURE O CAMINHO PARA SEU BANCO DE DADOS PRÓPRIO--	
+
+create database estoquejava;
+
+use estoquejava;
+
+CREATE TABLE `estoque` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome_produto` varchar(100) DEFAULT NULL,
+  `valor` decimal(10,2) DEFAULT NULL,
+  `qtd` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `funcionarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `genero` varchar(20) DEFAULT NULL,
+  `email` varchar(120) DEFAULT NULL,
+  `senha` varchar(10) DEFAULT NULL,
+  `nivel_acesso` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `historicoestoque` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int DEFAULT NULL,
+  `id_produto` int DEFAULT NULL,
+  `Qtd` int DEFAULT NULL,
+  `data_alt` date DEFAULT NULL,
+  `tipo` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `historicoestoque_ibfk_1` (`id_funcionario`),
+  KEY `historicoestoque_ibfk_2` (`id_produto`),
+  CONSTRAINT `historicoestoque_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionarios` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `historicoestoque_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `estoque` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+-- Inserindo o funcionário root com nível ADMINISTRADOR
+INSERT INTO funcionarios (nome, genero, email, senha, nivel_acesso) 
+VALUES ('Administrador Root', 'Masculino', 'root@empresa.com', 'root', 'ADMINISTRADOR');
+
+-- Inserções relacionadas (estoque e histórico)
+INSERT INTO estoque (nome_produto, valor, qtd) VALUES 
+('Notebook Dell i7', 4599.90, 10),
+('Mouse Sem Fio Logitech', 129.90, 25),
+('Teclado Mecânico RGB', 349.90, 15);
+
+-- Registros históricos feitos pelo root
+INSERT INTO historicoestoque (id_funcionario, id_produto, Qtd, data_alt, tipo)
+SELECT 
+    (SELECT id FROM funcionarios WHERE email = 'root@empresa.com' LIMIT 1),
+    e.id,
+    e.qtd,
+    CURDATE(),
+    'ENTRADA_INICIAL'
+FROM estoque e;
