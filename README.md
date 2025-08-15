@@ -110,63 +110,25 @@ No IntelliJ: File > Project Structure > Libraries
 Ou adicione o .jar manualmente
 
 Rode a classe br.com.sistemaestoque.Principal
-
-------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------
-📦 Arquivos Gerados
----
-
-NoticiasSalvas.txt: armazena os artigos que o usuário escolheu salvar.
-
-Histórico de temas pesquisados é mantido em memória durante execução.
-
-📁 Estrutura do Projeto
----
-```
-bash
-Copiar
-Editar
-JavaNews/
-├── src/
-│   └── br/com/JavaNews/
-│       ├── API/
-│       │   └── API.java
-│       ├── FuncionalidadeAPI/
-│       │   └── FuncionalidadeAPI.java
-│       ├── Formatacao/
-│       │   ├── Artigo.java
-│       │   ├── ArtigoJava.java
-│       │   └── LocalArtigo.java
-│       └── Principal/
-│           └── Principal.java
-├── NoticiasSalvas.txt
-└── README.md
 ```
 📌 Funcionalidades Completas
 ---
 
- Buscar notícias por tema personalizado
+ Buscar Funcionários
 
- Buscar notícias por tema pré-definido (15 categorias)
+ Buscar Produtos
 
- Exibir artigos com título, autor, descrição, data, imagem, fonte
+ Exibir tabela de Estoque, Funcionários Histórico
 
- Salvar artigos em arquivo .txt
+ Salvar alterações e inserções
 
- Visualizar histórico de temas pesquisados
+ Visualizar histórico de alterações
 
- Visualizar artigos salvos
-
- Limpar o histórico de artigos salvos
+Deletar funcionário e produtos
 
  Navegação interativa por menus
 
- Tratamento de erros (input inválido, artigo inexistente, exceções)
-
-📄 Licença
----
-
-Este projeto está licenciado sob a MIT License.
+Sistema de permissão de acesso com login
 
 👨‍💻 Desenvolvedor
 ---
