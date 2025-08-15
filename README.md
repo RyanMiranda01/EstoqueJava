@@ -129,7 +129,7 @@ Deletar funcionário e produtos
  Navegação interativa por menus
 
 Sistema de permissão de acesso com login
-
+```
 👨‍💻 Desenvolvedor
 ---
 
