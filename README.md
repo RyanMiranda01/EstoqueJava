@@ -3,12 +3,19 @@
  O EstoqueJava é um sistema que consiste com a manipulações das tabelas de estoque, funcionários e histórico de estoque, onde você pode:
 
 ✅ Ver Estoque, funcionários e histórico de alteração 
+
 ✅ Inserir, deletar e editar a tabela estoque
+
 ✅ Inserir e deletar a tabela funcionários
+
 ✅ Pesquisar em ambas das tabelas  
+
 ✅ Ver histórico de alterações  
+
 ✅ Acesso só é permitido se for funcionário
+
 ✅ Alteração de usuário("ADMINISTRADOR" OU "USUÁRIO")
+
 
 ---
 
